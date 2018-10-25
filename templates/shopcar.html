@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/cart.css' %}" type="text/css" rel="stylesheet">
+    <style>
+
+        input{
+        width:0.5rem;
+        height: 0.5rem;
+        }
+        div{
+            font-size: 0.4rem;
+        }
+        td{
+            word-wrap:break-word;
+            text-align: center;
+        }
+        th{
+            word-wrap:break-word;
+            text-align: center;
+        }
+        td>a>h3{
+            text-align: center;
+        }
+        button{
+            width: 2rem;
+            height: 1rem;
+            font-size: 0.6rem;
+
+        }
+        
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id="cart">
+        <form action="/jiesuan/" method="post">
+        <table border="solid 1px black">
+            <tr>
+                <th><input type="checkbox" name="allcheck"></th>
+                <th>商品图片</th>
+                <th>商品名称</th>
+                <th>商品数量</th>
+            </tr>
+
+            {% for shop in shops %}
+                <tr >
+                    <td><input type="checkbox" name="fcheck" value="{{ shop.id }}"
+                    {% if shop.isselect %}
+                        checked="checked"
+                    {% endif %}
+                    /></td>
+                    <td><img src="{{ shop.goods.productimg }}"/></td>
+                    <td>{{ shop.goods.productlongname }}</td>
+                    <td>{{ shop.number }}</td>
+                </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4"><a href="/market/" style="font-size: 0.5rem">你还没有商品，请点击我去添加一些吧</a> </td>
+                    </tr>
+            {% endfor %}
+                <td colspan="4" style="text-align: right;color:red;"><button type="button">结算</button></td>
+
+        </table>
+
+    </form>
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/shopcar.js' %}"></script>
+{% endblock %}

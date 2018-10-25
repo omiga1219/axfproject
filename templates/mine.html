@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+    <link  href="{% static 'css/mine.css' %}" type="text/css" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block body %}
+    <div id="mine">
+        <ul>
+            <li><a >所有订单</a></li>
+            <li><a>未付款订单</a></li>
+            <li><a>待发货订单</a></li>
+            <li><a>待收货订单</a></li>
+            <li><a>待评价订单</a></li>
+        </ul>
+
+
+
+
+
+
+
+    </div>
+{% endblock %}

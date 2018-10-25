@@ -1,0 +1,19 @@
+#login {
+    padding: 1.5rem 0;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    font-size: 0.8rem;
+}
+
+.redfont{
+
+    color:red;
+
+}
+
+.greenfont{
+    color: green;
+}

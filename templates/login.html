@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+    <style>
+    form{
+        padding: 1.5rem 0;
+        font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+        overflow: auto;
+        height: 100%;
+        width: 100%;
+        padding-bottom: 3rem;
+        position: fixed;
+        font-size: 0.4rem;
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <form action="/login/" method="post">
+
+        姓名：<input type="text" name="name" placeholder=""><br/>
+        密码：<input type="password" name="psw"  placeholder=""><br/>
+
+        <button type="submit">登录</button>
+    </form>
+
+
+
+{% endblock %}

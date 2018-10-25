@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/order.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="order">
+
+        <menu id="order1">
+
+            <h6>订单编号：{{ order.id }}</h6>
+
+
+            <ul>
+                {% for og in ogs %}
+
+                    <li>
+                        <a>
+                            <img src="{{ og.goods.productimg }}" alt="{{ og.goods.productname }}">
+                            <article class="shoppingInfo">
+                                <h6>{{ og.goods.productlongname }}</h6>
+
+                                <span class="unit">数量：{{ og.number }}</span>
+                                <p class="price">
+                                    <span>单价：{{ og.goods.price }}元</span>
+                                    <span>总价：{{ og.money }}元</span>
+                                </p>
+
+
+                            </article>
+                        </a>
+
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </menu>
+
+        <div id="pay">
+            <h6 style="font-size: 0.4rem">
+                {% if  order.status == 0 %}
+                    未付款
+                {% elif order.status == 1 %}
+                    已付款
+                {% elif order.status == 2 %}
+                    已发货
+                {% elif order.status == 3 %}
+                    待确认收货
+                {% elif order.status == 3 %}
+                    待评价
+                {% endif %}
+            </h6>
+            <div>订单总价：<span>{{ order.money }}</span>元</div>
+            <button>支付</button>
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
